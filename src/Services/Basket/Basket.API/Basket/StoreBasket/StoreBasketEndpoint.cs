@@ -17,7 +17,7 @@ namespace Basket.API.Basket.StoreBasket
                 return Results.Ok(response);
             })
             .WithName("CreateBasket")
-            .Produces<GetBasketResponse>(StatusCodes.Status200OK)
+            .Produces<StoreBasketResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
             .WithSummary("Create Basket")
             .WithDescription("Create Basket");
