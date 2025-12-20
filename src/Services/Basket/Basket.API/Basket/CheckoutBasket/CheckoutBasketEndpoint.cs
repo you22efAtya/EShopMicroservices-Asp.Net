@@ -1,0 +1,26 @@
+﻿
+using Basket.API.Basket.GetBasket;
+
+namespace Basket.API.Basket.CheckoutBasket
+{
+    public record CheckoutBasketRequest(BasketCheckoutDto BasketCheckoutDto);
+    public record CheckoutBasketResponse(bool Success);
+    public class CheckoutBasketEndpoint : ICarterModule
+    {
+        public void AddRoutes(IEndpointRouteBuilder app)
+        {
+            app.MapPost("/basket/checkout", async (CheckoutBasketRequest request,ISender sender) =>
+            {
+                var command = request.Adapt<CheckoutBasketCommand>();
+                var result = await sender.Send(command);
+                var response = result.Adapt<CheckoutBasketResponse>();
+                return Results.Ok(response);
+            })
+            .WithName("GetBasket")
+            .Produces<GetBasketResponse>(StatusCodes.Status200OK)
+            .ProducesProblem(StatusCodes.Status400BadRequest)
+            .WithSummary("Get Basket")
+            .WithDescription("Get the shopping cart for a specific user by username.");
+        }
+    }
+}
