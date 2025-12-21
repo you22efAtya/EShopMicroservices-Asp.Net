@@ -16,11 +16,11 @@ namespace Basket.API.Basket.CheckoutBasket
                 var response = result.Adapt<CheckoutBasketResponse>();
                 return Results.Ok(response);
             })
-            .WithName("GetBasket")
-            .Produces<GetBasketResponse>(StatusCodes.Status200OK)
+            .WithName("CheckoutBasket")
+            .Produces<CheckoutBasketResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
-            .WithSummary("Get Basket")
-            .WithDescription("Get the shopping cart for a specific user by username.");
+            .WithSummary("Checkout Basket")
+            .WithDescription("Checkout the shopping cart for a specific user by username.");
         }
     }
 }
