@@ -11,7 +11,7 @@ namespace Shopping.Web.Models.Catalog
         public string ImageFile { get; set; } = default!;
         public decimal Price { get; set; }
     }
-    public record GetProuctsResponse(IEnumerable<ProductModel> Products);
+    public record GetProductsResponse(IEnumerable<ProductModel> Products);
     public record GetProductByCategoryResponse(IEnumerable<ProductModel> Products);
     public record GetProductByIdResponse(ProductModel Product);
 }
