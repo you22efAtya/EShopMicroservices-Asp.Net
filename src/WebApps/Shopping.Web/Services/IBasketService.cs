@@ -1,7 +1,4 @@
-﻿using Shopping.Web.Models.Basket;
-using System.Net;
-
-namespace Shopping.Web.Services;
+﻿namespace Shopping.Web.Services;
 
 public interface IBasketService
 {
